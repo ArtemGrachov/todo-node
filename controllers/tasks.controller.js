@@ -8,7 +8,8 @@ const internalError = (res, err) => res.status(500).send({
   }),
   empty = (res) => res.status(400).send({
     message: 'Task content cannot be empty'
-  });
+  }),
+  fieldsToSelect = '_id title description';
 
 exports.create = (req, res) => {
   if (!req.body.description) {
@@ -26,13 +27,16 @@ exports.create = (req, res) => {
 }
 
 exports.getAll = (req, res) => {
-  Task.find()
+  Task
+    .find()
+    .select(fieldsToSelect)
     .then(tasks => res.send(tasks))
     .catch(err => errorHandler(req, err));
 }
 
 exports.findById = (req, res) => {
   Task.findById(req.params.taskId)
+    .select(fieldsToSelect)
     .then(task => task ? res.send(task) : notFound(req, res))
     .catch(err => internalError(res, err));
 }
@@ -47,6 +51,7 @@ exports.update = (req, res) => {
     req.body,
     { new: true }
   )
+    .select(fieldsToSelect)
     .then(task => {
       if (!task) {
         return notFound(req, res);
@@ -58,6 +63,7 @@ exports.update = (req, res) => {
 
 exports.delete = (req, res) => {
   Task.findByIdAndRemove(req.params.taskId)
+    .select(fieldsToSelect)
     .then(task => {
       if (!task) return notFound(req, res);
       res.send(task);
