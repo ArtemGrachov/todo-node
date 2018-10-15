@@ -1,4 +1,4 @@
-#ToDo Application (server)
+# ToDo Application (server)
 Express + MongoDB
 
 Application with simple CRUD created for studing NodeJS, Express, MongoDB and Mongoose
@@ -13,7 +13,7 @@ Database configuration:
 config/database.config.js
 ```
 
-##ToDo:
+## ToDo:
 * tests
 * comments
 * attachments
