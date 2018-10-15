@@ -21,10 +21,10 @@ config/database.config.js
 * authentification
 * multiple users
 
-##Done:
+## Done:
 * CRUD
 
-##API
+## API
 ```
 GET /tasks - all tasks list
 [
