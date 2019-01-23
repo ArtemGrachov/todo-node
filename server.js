@@ -24,7 +24,12 @@ mongoose.connect(dbConfig.url, {
   }
 )
 
-const tasksRoutes = require('./routes/tasks.routes')(app);
+const
+  tasksRouter = require('./routes/tasks.routes'),
+  userRouter = require('./routes/user.routes');
+
+app.use('/user', userRouter);
+app.use('/tasks', tasksRouter);
 
 app.listen(3000, function () {
   console.log('ToDo App Servier is running and listening port 3000');

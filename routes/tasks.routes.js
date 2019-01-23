@@ -1,13 +1,16 @@
-module.exports = (app) => {
-  const controller = require('../controllers/tasks.controller');
+const
+  express = require('express'),
+  router = express.Router(),
+  controller = require('../controllers/tasks.controller');
 
-  app.post('/tasks', controller.create);
+router.post('', controller.create);
 
-  app.get('/tasks', controller.getAll);
+router.get('', controller.getAll);
 
-  app.get('/tasks/:taskId', controller.findById);
+router.get('/:taskId', controller.findById);
 
-  app.put('/tasks/:taskId', controller.update);
+router.put('/:taskId', controller.update);
 
-  app.delete('/tasks/:taskId', controller.delete);
-}
+router.delete('/:taskId', controller.delete);
+
+module.exports = router;
