@@ -30,10 +30,10 @@ const UserSchema = mongoose.Schema({
   brithdate: {
     type: Date
   },
-  // boards: {
-  //   type: [mongoose.Types.ObjectId],
-  //   ref: 'Board'
-  // }
+  boards: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: 'Board'
+  }
 });
 
 UserSchema.pre('save', function(next) {

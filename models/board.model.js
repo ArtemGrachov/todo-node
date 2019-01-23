@@ -10,16 +10,16 @@ const BoardSchema = mongoose.Schema({
   },
   team: {
     administrators: [{
-      type: mongoose.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
     }],
     users: [{
-      type: mongoose.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: 'User'
     }]
   },
   lists: [{
-    type: mongoose.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'List'
   }],
   style: {

@@ -6,7 +6,7 @@ const ListSchema = mongoose.Schema({
     required: true
   },
   tasks: {
-    type: mongoose.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Task'
   },
   hidden: {
